@@ -34,6 +34,7 @@ defmodule DB.MixProject do
   defp deps do
     [
       {:ecto_sql, "~> 3.10"},
+      {:ex_machina, "~> 2.7.0", only: :test},
       {:postgrex, ">= 0.0.0"}
     ]
   end
