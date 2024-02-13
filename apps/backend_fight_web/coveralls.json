@@ -1,0 +1,6 @@
+{
+  "skip_files": [
+    "lib/backend_fight_web/application.ex",
+    "lib/backend_fight_web/telemetry.ex"
+  ]
+}
