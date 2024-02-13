@@ -10,8 +10,10 @@
 import Config
 
 # Configure Mix tasks and generators
-config :backend_fight,
-  ecto_repos: [BackendFight.Repo],
+
+# App DB settings.
+config :db,
+  ecto_repos: [DB.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the mailer
@@ -24,7 +26,7 @@ config :backend_fight,
 config :backend_fight, BackendFight.Mailer, adapter: Swoosh.Adapters.Local
 
 config :backend_fight_web,
-  ecto_repos: [BackendFight.Repo],
+  ecto_repos: [DB.Repo],
   generators: [context_app: :backend_fight]
 
 # Configures the endpoint

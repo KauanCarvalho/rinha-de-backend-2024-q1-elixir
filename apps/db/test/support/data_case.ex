@@ -1,4 +1,4 @@
-defmodule BackendFight.DataCase do
+defmodule DB.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule BackendFight.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use BackendFight.DataCase, async: true`, although
+  by setting `use DB.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -20,17 +20,17 @@ defmodule BackendFight.DataCase do
 
   using do
     quote do
-      alias BackendFight.Repo
+      alias DB.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import BackendFight.DataCase
+      import DB.DataCase
     end
   end
 
   setup tags do
-    BackendFight.DataCase.setup_sandbox(tags)
+    DB.DataCase.setup_sandbox(tags)
     :ok
   end
 
@@ -38,7 +38,7 @@ defmodule BackendFight.DataCase do
   Sets up the sandbox based on the test tags.
   """
   def setup_sandbox(tags) do
-    pid = Sandbox.start_owner!(BackendFight.Repo, shared: not tags[:async])
+    pid = Sandbox.start_owner!(DB.Repo, shared: not tags[:async])
     on_exit(fn -> Sandbox.stop_owner(pid) end)
   end
 

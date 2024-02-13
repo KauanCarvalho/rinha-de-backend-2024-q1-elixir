@@ -8,7 +8,6 @@ defmodule BackendFight.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      BackendFight.Repo,
       {DNSCluster, query: Application.get_env(:backend_fight, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: BackendFight.PubSub},
       # Start the Finch HTTP client for sending emails

@@ -32,7 +32,7 @@ defmodule BackendFightWeb.ConnCase do
   end
 
   setup tags do
-    BackendFight.DataCase.setup_sandbox(tags)
+    DB.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

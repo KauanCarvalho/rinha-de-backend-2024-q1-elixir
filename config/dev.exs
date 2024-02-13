@@ -1,7 +1,7 @@
 import Config
 
 # Configure your database
-config :backend_fight, BackendFight.Repo,
+config :db, DB.Repo,
   username: "postgres",
   password: "postgres",
   hostname: System.get_env("DATABASE_HOSTNAME", "localhost"),
