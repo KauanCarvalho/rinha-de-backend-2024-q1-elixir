@@ -13,6 +13,10 @@ defmodule BackendFightWeb.Router do
     pipe_through :api
   end
 
+  scope "/", BackendFightWeb do
+    get("/healthcheck", HealthcheckController, :index)
+  end
+
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:backend_fight_web, :dev_routes) do
     # If you want to use the LiveDashboard in production, you should put
