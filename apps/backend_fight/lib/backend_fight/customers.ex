@@ -42,7 +42,7 @@ defmodule BackendFight.Customers do
   def find_for_customer_information(customer_id) when is_integer(customer_id) do
     transaction_query =
       from(transaction in Transaction,
-        order_by: [desc: transaction.inserted_at],
+        order_by: [desc: transaction.inserted_at, desc: transaction.id],
         limit: @number_of_serialized_transactions
       )
 
