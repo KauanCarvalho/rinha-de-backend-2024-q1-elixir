@@ -16,9 +16,13 @@ defmodule DB.Schemas.Customer do
 
   import Ecto.Changeset
 
+  alias DB.Schemas.Transaction
+
   schema "customers" do
     field(:limit_amount, :integer)
     field(:balance, :integer, default: 0)
+
+    has_many(:transactions, Transaction)
   end
 
   @doc false

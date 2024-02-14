@@ -1,20 +1,20 @@
 defmodule BackendFightWeb.Router do
   use BackendFightWeb, :router
 
-  # coveralls-ignore-start
-
   pipeline :api do
     plug :accepts, ["json"]
   end
-
-  # coveralls-ignore-stop
 
   scope "/api", BackendFightWeb do
     pipe_through :api
   end
 
   scope "/", BackendFightWeb do
+    pipe_through :api
+
     get("/healthcheck", HealthcheckController, :index)
+
+    get("/clientes/:id/extrato", CustomerController, :bank_statement)
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
