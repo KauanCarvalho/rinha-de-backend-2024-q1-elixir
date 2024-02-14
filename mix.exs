@@ -15,6 +15,15 @@ defmodule BackendFight.Umbrella.MixProject do
         "coveralls.post": :test,
         "coveralls.html": :test,
         "coveralls.cobertura": :test
+      ],
+      releases: [
+        backend_fight: [
+          applications: [
+            db: :permanent,
+            backend_fight: :permanent,
+            backend_fight_web: :permanent
+          ]
+        ]
       ]
     ]
   end
