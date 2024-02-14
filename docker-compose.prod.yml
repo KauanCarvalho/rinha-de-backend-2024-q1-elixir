@@ -24,6 +24,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: release
+    container_name: api1
     environment: &api_env
       MIX_ENV: prod
       PHX_SERVER: true
@@ -51,6 +52,7 @@ services:
 
   api2:
     <<: *api
+    container_name: api2
     environment:
       <<: *api_env
       RELEASE_NODE: api2@127.0.0.1
