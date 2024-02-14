@@ -41,4 +41,16 @@ defmodule DB.Schemas.Transaction do
     |> validate_length(:description, min: 1, max: 10)
     |> foreign_key_constraint(:customer_id)
   end
+
+  @doc false
+  def validate_new_balance(changeset, balance, limit) do
+    validate_change(changeset, :amount, fn :amount, amount ->
+      type = get_change(changeset, :type)
+
+      case type == :d && balance - amount < -limit do
+        true -> [balance: "new balance: #{balance - amount} exceeded the limit: #{-limit}"]
+        false -> []
+      end
+    end)
+  end
 end

@@ -15,6 +15,7 @@ defmodule BackendFightWeb.Router do
     get("/healthcheck", HealthcheckController, :index)
 
     get("/clientes/:id/extrato", CustomerController, :bank_statement)
+    post("/clientes/:id/transacoes", TransactionController, :create)
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
