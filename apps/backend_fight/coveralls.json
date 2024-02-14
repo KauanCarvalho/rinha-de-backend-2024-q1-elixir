@@ -2,5 +2,7 @@
   "custom_stop_words": [
     "embedded_schema"
   ],
-  "skip_files": []
+  "skip_files": [
+    "lib/backend_fight/application.ex"
+  ]
 }

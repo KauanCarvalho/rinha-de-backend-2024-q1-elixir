@@ -37,6 +37,7 @@ defmodule BackendFightWeb.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:backend_fight, in_umbrella: true},
       {:db, in_umbrella: true},
       {:phoenix, "~> 1.7.11"},
       {:phoenix_ecto, "~> 4.4"},
